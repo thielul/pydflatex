@@ -51,10 +51,10 @@ class Runner(Processor):
 		paths = self.paths(tex_path)
 		return tex_path, paths
 
-	def typeset(self, full_path):
+	def typeset(self, full_path, file_base):
 		time_start = time.time()
 		typesetter = Typesetter(logger=self.logger, options=self.options)
-		typesetter.typeset(full_path)
+		typesetter.typeset(full_path, file_base)
 		time_end = time.time()
 		return time_end - time_start
 
@@ -81,7 +81,7 @@ class Runner(Processor):
 		full_path = paths['full_path']
 
 		if self.options['typesetting']:
-			time_diff = self.typeset(full_path)
+			time_diff = self.typeset(full_path, paths['file_base'])
 			success_message = 'Typesetting of "{name}" completed in {time:.1f}s.'.format(name=full_path, time=(time_diff))
 
 		if self.options['log_parsing']:
@@ -94,7 +94,7 @@ class Runner(Processor):
 			# Print success message
 			self.logger.success(success_message)
 			# Post process
-			self.clean(paths['base'], paths['file_base'])
+			#self.clean(paths['base'], paths['file_base'])
 			# Open pdf
 			if self.options['open_after']:
 				self.open_pdf(paths['root'])

@@ -23,7 +23,7 @@ class LogProcessor(Processor):
 
 	@classmethod
 	def log_file_path(self, base, file_base):
-		return os.path.join(base, file_base + os.path.extsep + 'log')
+		return os.path.join(base, os.path.join(".tmp", file_base + os.path.extsep + 'log'))
 
 	@classmethod
 	def parse_log(self, log_file_path):

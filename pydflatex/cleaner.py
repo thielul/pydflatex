@@ -14,7 +14,7 @@ class Cleaner(Processor):
 
 	@classmethod
 	def fls_file(self, file_base):
-		return os.path.join(os.curdir, file_base+os.path.extsep+'fls')
+		return os.path.join(os.curdir, os.path.join(".tmp", file_base + os.path.extsep + 'fls'))
 
 	@classmethod
 	def output_files(self, fls_file):
