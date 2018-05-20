@@ -1,4 +1,4 @@
-This is a fork of the pdflatex python wrapper [pydflatex](https://github.com/olivierverdier/pydflatex) by Olivier Verdier. I modified a couple of things to hide the auxiliary files. Here's what I did:
+This is a fork of the pdflatex python wrapper [pydflatex](https://github.com/olivierverdier/pydflatex) by Olivier Verdier. The wrapper already suppresses a lot of the useless LaTeX output messages and presents only the relevant stuff in a neat way. I've added functionality to hide the auxiliary files:
 * I use the -output-directory=.tmp to move all the annoying auxiliary files to the hidden directory .tmp. The final PDF output file is then moved back from here to the base directory.
 * I added the -synctex=1 option.
 * I removed the -recorder option.
