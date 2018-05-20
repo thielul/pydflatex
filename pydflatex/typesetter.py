@@ -56,3 +56,5 @@ class Typesetter(Processor):
 		output = subprocess.Popen(arguments, stdout=subprocess.PIPE).communicate()[0]
 		self.logger.message(output.splitlines()[0].decode('utf8'))
 		os.system("mv \"" + os.path.join(".tmp", file_base + os.path.extsep + "pdf") + "\"  .")
+		os.system("ln -f -s \"" + os.path.join(".tmp", file_base + os.path.extsep + "synctex.gz") + "\"  .")
+		os.system("chflags -h hidden \"" + file_base + os.path.extsep + "synctex.gz\"")
